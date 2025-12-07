@@ -1,0 +1,188 @@
+{
+  "extension_name": {
+    "message": "Perplexity Shortcut Effective Extension",
+    "description": "Extension name shown in Chrome surfaces."
+  },
+  "extension_description": {
+    "message": "更安全的傳送、類 vim 的捲動、模型切換、臨時聊天，以及乾淨的 Perplexity 介面。",
+    "description": "Chrome Web Store / manifest description."
+  },
+  "action_default_title": {
+    "message": "Perplexity Shortcut Effective Extension",
+    "description": "Browser action tooltip."
+  },
+  "popup_header_title": {
+    "message": "Perplexity Shortcut Effective Extension",
+    "description": "Heading at the top of the popup/options UI."
+  },
+  "popup_button_reset": {
+    "message": "重設",
+    "description": "Button label to reset all settings."
+  },
+  "popup_section_features": {
+    "message": "功能",
+    "description": "Section title above feature toggles."
+  },
+  "popup_section_shortcuts": {
+    "message": "快捷鍵",
+    "description": "Section title above shortcut editor."
+  },
+  "popup_feature_label_vim_scroll": {
+    "message": "類 Vim 捲動",
+    "description": "Toggle label for Vim-style scrolling."
+  },
+  "popup_feature_label_wide_screen": {
+    "message": "寬螢幕／專注模式",
+    "description": "Toggle label for widescreen focus mode."
+  },
+  "popup_feature_label_safe_send": {
+    "message": "使用 Cmd/Ctrl + Enter 傳送",
+    "description": "Toggle label for safe send shortcut."
+  },
+  "popup_feature_label_other_shortcuts": {
+    "message": "其他快捷鍵",
+    "description": "Toggle label enabling additional shortcuts."
+  },
+  "popup_loading_text": {
+    "message": "載入中...",
+    "description": "Shown while popup initializes."
+  },
+  "popup_error_load_settings": {
+    "message": "無法載入設定。",
+    "description": "Error text when reading settings fails."
+  },
+  "popup_info_reset_success": {
+    "message": "已將設定重設為預設值。",
+    "description": "Info text after reset succeeds."
+  },
+  "popup_input_placeholder": {
+    "message": "請按下按鍵",
+    "description": "Placeholder inside shortcut input field."
+  },
+  "popup_error_shortcut_conflict": {
+    "message": "「$1」已指派給 $2。",
+    "description": "Error shown when a shortcut conflicts with another.",
+    "placeholders": {
+      "binding": {
+        "content": "$1",
+        "example": "Ctrl+K"
+      },
+      "label": {
+        "content": "$2",
+        "example": "Scroll to Top"
+      }
+    }
+  },
+  "popup_error_shortcut_requires_modifier": {
+    "message": "「$1」必須與修飾鍵一起使用。",
+    "description": "當未搭配修飾鍵使用受限單鍵時顯示。"
+  },
+  "popup_error_shortcut_forbidden_key": {
+    "message": "「$1」無法作為快捷鍵使用。",
+    "description": "當使用完全禁止的按鍵時顯示。"
+  },
+  "error_shortcut_requires_modifier": {
+    "message": "「$1」必須與修飾鍵一起使用。",
+    "description": "當未搭配修飾鍵使用受限單鍵時顯示。"
+  },
+  "error_shortcut_forbidden_key": {
+    "message": "「$1」無法作為快捷鍵使用。",
+    "description": "當使用完全禁止的按鍵時顯示。"
+  },
+  "shortcut_panel_section_title": {
+    "message": "擴充功能",
+    "description": "Header inserted in Perplexity shortcut dialog."
+  },
+  "shortcut_panel_settings_label": {
+    "message": "快捷鍵設定",
+    "description": "Label for the row linking to extension settings."
+  },
+  "shortcut_panel_settings_link": {
+    "message": "按此開啟",
+    "description": "Link text that opens the extension settings."
+  },
+  "shortcut_label_scroll_top": {
+    "message": "捲動到頂端",
+    "description": "Shortcut label."
+  },
+  "shortcut_label_scroll_bottom": {
+    "message": "捲動到底部",
+    "description": "Shortcut label."
+  },
+  "shortcut_label_scroll_up": {
+    "message": "向上捲動",
+    "description": "Shortcut label."
+  },
+  "shortcut_label_scroll_down": {
+    "message": "向下捲動",
+    "description": "Shortcut label."
+  },
+  "shortcut_label_scroll_half_up": {
+    "message": "捲動半頁向上",
+    "description": "Shortcut label."
+  },
+  "shortcut_label_scroll_half_down": {
+    "message": "捲動半頁向下",
+    "description": "Shortcut label."
+  },
+  "shortcut_label_toggle_focus": {
+    "message": "切換焦點",
+    "description": "Shortcut label."
+  },
+  "shortcut_label_open_new_chat": {
+    "message": "開啟新對話",
+    "description": "Shortcut label."
+  },
+  "shortcut_label_toggle_temporary_chat": {
+    "message": "切換帳號／無痕",
+    "description": "Shortcut label."
+  },
+  "shortcut_label_delete_chat": {
+    "message": "刪除對話",
+    "description": "Shortcut label."
+  },
+  "shortcut_label_bookmark_chat": {
+    "message": "將對話加入書籤",
+    "description": "Shortcut label."
+  },
+  "shortcut_label_add_photos": {
+    "message": "新增照片與檔案",
+    "description": "Shortcut label."
+  },
+  "html_lang": {
+    "message": "zh-TW",
+    "description": "Language code for <html lang>."
+  },
+  "key_name_ctrl": {
+    "message": "Ctrl",
+    "description": "Label used for Control modifier."
+  },
+  "key_name_cmd": {
+    "message": "Cmd",
+    "description": "Label used for Command modifier."
+  },
+  "key_name_alt": {
+    "message": "Alt",
+    "description": "Label used for Alt modifier."
+  },
+  "key_name_shift": {
+    "message": "Shift",
+    "description": "Label used for Shift modifier."
+  },
+  "key_name_space": {
+    "message": "空白鍵",
+    "description": "Label for the Space key."
+  },
+  "key_name_enter": {
+    "message": "Enter",
+    "description": "Label for the Enter key."
+  },
+  "key_name_backspace": {
+    "message": "⌫",
+    "description": "Label for the Backspace key."
+  },
+  "key_name_delete": {
+    "message": "⌦",
+    "description": "Label for the Delete key."
+  }
+}

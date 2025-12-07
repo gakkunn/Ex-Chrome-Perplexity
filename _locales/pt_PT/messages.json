@@ -1,0 +1,188 @@
+{
+  "extension_name": {
+    "message": "Perplexity Shortcut Effective Extension",
+    "description": "Extension name shown in Chrome surfaces."
+  },
+  "extension_description": {
+    "message": "Envio mais seguro, rolagem ao estilo vim, alternância de modelos, chats temporários e UI limpa para o Perplexity.",
+    "description": "Chrome Web Store / manifest description."
+  },
+  "action_default_title": {
+    "message": "Perplexity Shortcut Effective Extension",
+    "description": "Browser action tooltip."
+  },
+  "popup_header_title": {
+    "message": "Perplexity Shortcut Effective Extension",
+    "description": "Heading at the top of the popup/options UI."
+  },
+  "popup_button_reset": {
+    "message": "Repor",
+    "description": "Button label to reset all settings."
+  },
+  "popup_section_features": {
+    "message": "Funcionalidades",
+    "description": "Section title above feature toggles."
+  },
+  "popup_section_shortcuts": {
+    "message": "Atalhos",
+    "description": "Section title above shortcut editor."
+  },
+  "popup_feature_label_vim_scroll": {
+    "message": "Deslocação estilo Vim",
+    "description": "Toggle label for Vim-style scrolling."
+  },
+  "popup_feature_label_wide_screen": {
+    "message": "Ecrã largo / foco",
+    "description": "Toggle label for widescreen focus mode."
+  },
+  "popup_feature_label_safe_send": {
+    "message": "Enviar com Cmd/Ctrl + Enter",
+    "description": "Toggle label for safe send shortcut."
+  },
+  "popup_feature_label_other_shortcuts": {
+    "message": "Outros atalhos",
+    "description": "Toggle label enabling additional shortcuts."
+  },
+  "popup_loading_text": {
+    "message": "A carregar...",
+    "description": "Shown while popup initializes."
+  },
+  "popup_error_load_settings": {
+    "message": "Não foi possível carregar as definições.",
+    "description": "Error text when reading settings fails."
+  },
+  "popup_info_reset_success": {
+    "message": "As definições foram repostas para o padrão.",
+    "description": "Info text after reset succeeds."
+  },
+  "popup_input_placeholder": {
+    "message": "Prima as teclas",
+    "description": "Placeholder inside shortcut input field."
+  },
+  "popup_error_shortcut_conflict": {
+    "message": "\"$1\" já está atribuído a $2.",
+    "description": "Error shown when a shortcut conflicts with another.",
+    "placeholders": {
+      "binding": {
+        "content": "$1",
+        "example": "Ctrl+K"
+      },
+      "label": {
+        "content": "$2",
+        "example": "Scroll to Top"
+      }
+    }
+  },
+  "popup_error_shortcut_requires_modifier": {
+    "message": "\"$1\" deve ser combinado com uma tecla modificadora.",
+    "description": "Mostrado quando se usa uma tecla não permitida sem modificadores."
+  },
+  "popup_error_shortcut_forbidden_key": {
+    "message": "\"$1\" não pode ser usado como atalho.",
+    "description": "Mostrado quando se utiliza uma tecla completamente proibida."
+  },
+  "error_shortcut_requires_modifier": {
+    "message": "\"$1\" deve ser combinado com uma tecla modificadora.",
+    "description": "Mostrado quando se usa uma tecla não permitida sem modificadores."
+  },
+  "error_shortcut_forbidden_key": {
+    "message": "\"$1\" não pode ser usado como atalho.",
+    "description": "Mostrado quando se utiliza uma tecla completamente proibida."
+  },
+  "shortcut_panel_section_title": {
+    "message": "Extensão",
+    "description": "Header inserted in Perplexity shortcut dialog."
+  },
+  "shortcut_panel_settings_label": {
+    "message": "Atalho de configuração",
+    "description": "Label for the row linking to extension settings."
+  },
+  "shortcut_panel_settings_link": {
+    "message": "Clique aqui",
+    "description": "Link text that opens the extension settings."
+  },
+  "shortcut_label_scroll_top": {
+    "message": "Deslocar para o topo",
+    "description": "Shortcut label."
+  },
+  "shortcut_label_scroll_bottom": {
+    "message": "Deslocar para o fim",
+    "description": "Shortcut label."
+  },
+  "shortcut_label_scroll_up": {
+    "message": "Deslocar para cima",
+    "description": "Shortcut label."
+  },
+  "shortcut_label_scroll_down": {
+    "message": "Deslocar para baixo",
+    "description": "Shortcut label."
+  },
+  "shortcut_label_scroll_half_up": {
+    "message": "Meia página para cima",
+    "description": "Shortcut label."
+  },
+  "shortcut_label_scroll_half_down": {
+    "message": "Meia página para baixo",
+    "description": "Shortcut label."
+  },
+  "shortcut_label_toggle_focus": {
+    "message": "Alternar foco",
+    "description": "Shortcut label."
+  },
+  "shortcut_label_open_new_chat": {
+    "message": "Abrir novo chat",
+    "description": "Shortcut label."
+  },
+  "shortcut_label_toggle_temporary_chat": {
+    "message": "Alternar conta/anónimo",
+    "description": "Shortcut label."
+  },
+  "shortcut_label_delete_chat": {
+    "message": "Eliminar chat",
+    "description": "Shortcut label."
+  },
+  "shortcut_label_bookmark_chat": {
+    "message": "Guardar chat",
+    "description": "Shortcut label."
+  },
+  "shortcut_label_add_photos": {
+    "message": "Adicionar fotos e ficheiros",
+    "description": "Shortcut label."
+  },
+  "html_lang": {
+    "message": "pt-PT",
+    "description": "Language code for <html lang>."
+  },
+  "key_name_ctrl": {
+    "message": "Ctrl",
+    "description": "Label used for Control modifier."
+  },
+  "key_name_cmd": {
+    "message": "Cmd",
+    "description": "Label used for Command modifier."
+  },
+  "key_name_alt": {
+    "message": "Alt",
+    "description": "Label used for Alt modifier."
+  },
+  "key_name_shift": {
+    "message": "Shift",
+    "description": "Label used for Shift modifier."
+  },
+  "key_name_space": {
+    "message": "Espaço",
+    "description": "Label for the Space key."
+  },
+  "key_name_enter": {
+    "message": "Enter",
+    "description": "Label for the Enter key."
+  },
+  "key_name_backspace": {
+    "message": "⌫",
+    "description": "Label for the Backspace key."
+  },
+  "key_name_delete": {
+    "message": "⌦",
+    "description": "Label for the Delete key."
+  }
+}

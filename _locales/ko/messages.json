@@ -1,0 +1,188 @@
+{
+  "extension_name": {
+    "message": "Perplexity Shortcut Effective Extension",
+    "description": "Extension name shown in Chrome surfaces."
+  },
+  "extension_description": {
+    "message": "더 안전한 전송, vim 스타일 스크롤, 모델 전환, 임시 채팅, Perplexity용 깔끔한 UI.",
+    "description": "Chrome Web Store / manifest description."
+  },
+  "action_default_title": {
+    "message": "Perplexity Shortcut Effective Extension",
+    "description": "Browser action tooltip."
+  },
+  "popup_header_title": {
+    "message": "Perplexity Shortcut Effective Extension",
+    "description": "Heading at the top of the popup/options UI."
+  },
+  "popup_button_reset": {
+    "message": "초기화",
+    "description": "Button label to reset all settings."
+  },
+  "popup_section_features": {
+    "message": "기능",
+    "description": "Section title above feature toggles."
+  },
+  "popup_section_shortcuts": {
+    "message": "단축키",
+    "description": "Section title above shortcut editor."
+  },
+  "popup_feature_label_vim_scroll": {
+    "message": "Vim 스타일 스크롤",
+    "description": "Toggle label for Vim-style scrolling."
+  },
+  "popup_feature_label_wide_screen": {
+    "message": "와이드 스크린/포커스",
+    "description": "Toggle label for widescreen focus mode."
+  },
+  "popup_feature_label_safe_send": {
+    "message": "Cmd/Ctrl + Enter 로 보내기",
+    "description": "Toggle label for safe send shortcut."
+  },
+  "popup_feature_label_other_shortcuts": {
+    "message": "기타 단축키",
+    "description": "Toggle label enabling additional shortcuts."
+  },
+  "popup_loading_text": {
+    "message": "불러오는 중...",
+    "description": "Shown while popup initializes."
+  },
+  "popup_error_load_settings": {
+    "message": "설정을 불러오지 못했습니다.",
+    "description": "Error text when reading settings fails."
+  },
+  "popup_info_reset_success": {
+    "message": "설정을 기본값으로 초기화했습니다.",
+    "description": "Info text after reset succeeds."
+  },
+  "popup_input_placeholder": {
+    "message": "키를 누르세요",
+    "description": "Placeholder inside shortcut input field."
+  },
+  "popup_error_shortcut_conflict": {
+    "message": "\"$1\"은(는) 이미 $2에 할당되어 있습니다.",
+    "description": "Error shown when a shortcut conflicts with another.",
+    "placeholders": {
+      "binding": {
+        "content": "$1",
+        "example": "Ctrl+K"
+      },
+      "label": {
+        "content": "$2",
+        "example": "Scroll to Top"
+      }
+    }
+  },
+  "popup_error_shortcut_requires_modifier": {
+    "message": "\"$1\"는 조합 키와 함께 사용해야 합니다.",
+    "description": "허용되지 않는 단일 키를 조합 키 없이 사용한 경우 표시됩니다."
+  },
+  "popup_error_shortcut_forbidden_key": {
+    "message": "\"$1\"는 바로가기 키로 사용할 수 없습니다.",
+    "description": "완전히 금지된 키를 사용했을 때 표시됩니다."
+  },
+  "error_shortcut_requires_modifier": {
+    "message": "\"$1\"는 조합 키와 함께 사용해야 합니다.",
+    "description": "허용되지 않는 단일 키를 조합 키 없이 사용한 경우 표시됩니다."
+  },
+  "error_shortcut_forbidden_key": {
+    "message": "\"$1\"는 바로가기 키로 사용할 수 없습니다.",
+    "description": "완전히 금지된 키를 사용했을 때 표시됩니다."
+  },
+  "shortcut_panel_section_title": {
+    "message": "확장 프로그램",
+    "description": "Header inserted in Perplexity shortcut dialog."
+  },
+  "shortcut_panel_settings_label": {
+    "message": "단축키 설정",
+    "description": "Label for the row linking to extension settings."
+  },
+  "shortcut_panel_settings_link": {
+    "message": "여기를 클릭",
+    "description": "Link text that opens the extension settings."
+  },
+  "shortcut_label_scroll_top": {
+    "message": "맨 위로 스크롤",
+    "description": "Shortcut label."
+  },
+  "shortcut_label_scroll_bottom": {
+    "message": "맨 아래로 스크롤",
+    "description": "Shortcut label."
+  },
+  "shortcut_label_scroll_up": {
+    "message": "위로 스크롤",
+    "description": "Shortcut label."
+  },
+  "shortcut_label_scroll_down": {
+    "message": "아래로 스크롤",
+    "description": "Shortcut label."
+  },
+  "shortcut_label_scroll_half_up": {
+    "message": "반 페이지 위로 스크롤",
+    "description": "Shortcut label."
+  },
+  "shortcut_label_scroll_half_down": {
+    "message": "반 페이지 아래로 스크롤",
+    "description": "Shortcut label."
+  },
+  "shortcut_label_toggle_focus": {
+    "message": "포커스 전환",
+    "description": "Shortcut label."
+  },
+  "shortcut_label_open_new_chat": {
+    "message": "새 채팅 열기",
+    "description": "Shortcut label."
+  },
+  "shortcut_label_toggle_temporary_chat": {
+    "message": "계정/시크릿 모드 전환",
+    "description": "Shortcut label."
+  },
+  "shortcut_label_delete_chat": {
+    "message": "채팅 삭제",
+    "description": "Shortcut label."
+  },
+  "shortcut_label_bookmark_chat": {
+    "message": "채팅 북마크",
+    "description": "Shortcut label."
+  },
+  "shortcut_label_add_photos": {
+    "message": "사진 및 파일 추가",
+    "description": "Shortcut label."
+  },
+  "html_lang": {
+    "message": "ko",
+    "description": "Language code for <html lang>."
+  },
+  "key_name_ctrl": {
+    "message": "Ctrl",
+    "description": "Label used for Control modifier."
+  },
+  "key_name_cmd": {
+    "message": "Cmd",
+    "description": "Label used for Command modifier."
+  },
+  "key_name_alt": {
+    "message": "Alt",
+    "description": "Label used for Alt modifier."
+  },
+  "key_name_shift": {
+    "message": "Shift",
+    "description": "Label used for Shift modifier."
+  },
+  "key_name_space": {
+    "message": "스페이스",
+    "description": "Label for the Space key."
+  },
+  "key_name_enter": {
+    "message": "Enter",
+    "description": "Label for the Enter key."
+  },
+  "key_name_backspace": {
+    "message": "⌫",
+    "description": "Label for the Backspace key."
+  },
+  "key_name_delete": {
+    "message": "⌦",
+    "description": "Label for the Delete key."
+  }
+}

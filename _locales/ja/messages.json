@@ -1,0 +1,192 @@
+{
+  "extension_name": {
+    "message": "Perplexity Shortcut Effective Extension",
+    "description": "Extension name shown in Chrome surfaces."
+  },
+  "extension_name_short": {
+    "message": "Perplexity Shortcut Extension",
+    "description": "UI 見出しで使う短い表示名。"
+  },
+  "extension_description": {
+    "message": "安全な送信、vim 風スクロール、モデル切り替え、一時チャット、Perplexity のためのクリーンな UI。",
+    "description": "Chrome Web Store / manifest description."
+  },
+  "action_default_title": {
+    "message": "Perplexity Shortcut Effective Extension",
+    "description": "Browser action tooltip."
+  },
+  "popup_header_title": {
+    "message": "Perplexity Shortcut Effective Extension",
+    "description": "Heading at the top of the popup/options UI."
+  },
+  "popup_button_reset": {
+    "message": "リセット",
+    "description": "Button label to reset all settings."
+  },
+  "popup_section_features": {
+    "message": "機能",
+    "description": "Section title above feature toggles."
+  },
+  "popup_section_shortcuts": {
+    "message": "ショートカット",
+    "description": "Section title above shortcut editor."
+  },
+  "popup_feature_label_vim_scroll": {
+    "message": "Vim 風スクロール",
+    "description": "Toggle label for Vim-style scrolling."
+  },
+  "popup_feature_label_wide_screen": {
+    "message": "ワイドスクリーン／フォーカス",
+    "description": "Toggle label for widescreen focus mode."
+  },
+  "popup_feature_label_safe_send": {
+    "message": "Cmd/Ctrl + Enter で送信",
+    "description": "Toggle label for safe send shortcut."
+  },
+  "popup_feature_label_other_shortcuts": {
+    "message": "その他のショートカット",
+    "description": "Toggle label enabling additional shortcuts."
+  },
+  "popup_loading_text": {
+    "message": "読み込み中...",
+    "description": "Shown while popup initializes."
+  },
+  "popup_error_load_settings": {
+    "message": "設定の読み込みに失敗しました。",
+    "description": "Error text when reading settings fails."
+  },
+  "popup_info_reset_success": {
+    "message": "設定をデフォルトにリセットしました。",
+    "description": "Info text after reset succeeds."
+  },
+  "popup_input_placeholder": {
+    "message": "キーを押してください",
+    "description": "Placeholder inside shortcut input field."
+  },
+  "popup_error_shortcut_conflict": {
+    "message": "\"$1\" は $2 にすでに割り当てられています。",
+    "description": "Error shown when a shortcut conflicts with another.",
+    "placeholders": {
+      "binding": {
+        "content": "$1",
+        "example": "Ctrl+K"
+      },
+      "label": {
+        "content": "$2",
+        "example": "Scroll to Top"
+      }
+    }
+  },
+  "popup_error_shortcut_requires_modifier": {
+    "message": "「$1」は修飾キーと組み合わせてください。",
+    "description": "修飾キーなしでは使えないキーが指定された場合に表示されます。"
+  },
+  "popup_error_shortcut_forbidden_key": {
+    "message": "「$1」はショートカットとして使用できません。",
+    "description": "完全に使用不可のキーが指定された場合に表示されます。"
+  },
+  "error_shortcut_requires_modifier": {
+    "message": "「$1」は修飾キーと組み合わせてください。",
+    "description": "修飾キーなしでは使えないキーが指定された場合に表示されます。"
+  },
+  "error_shortcut_forbidden_key": {
+    "message": "「$1」はショートカットとして使用できません。",
+    "description": "完全に使用不可のキーが指定された場合に表示されます。"
+  },
+  "shortcut_panel_section_title": {
+    "message": "拡張機能",
+    "description": "Header inserted in Perplexity shortcut dialog."
+  },
+  "shortcut_panel_settings_label": {
+    "message": "ショートカット設定",
+    "description": "Label for the row linking to extension settings."
+  },
+  "shortcut_panel_settings_link": {
+    "message": "こちらをクリック",
+    "description": "Link text that opens the extension settings."
+  },
+  "shortcut_label_scroll_top": {
+    "message": "先頭へスクロール",
+    "description": "Shortcut label."
+  },
+  "shortcut_label_scroll_bottom": {
+    "message": "最後へスクロール",
+    "description": "Shortcut label."
+  },
+  "shortcut_label_scroll_up": {
+    "message": "上にスクロール",
+    "description": "Shortcut label."
+  },
+  "shortcut_label_scroll_down": {
+    "message": "下にスクロール",
+    "description": "Shortcut label."
+  },
+  "shortcut_label_scroll_half_up": {
+    "message": "半ページ上にスクロール",
+    "description": "Shortcut label."
+  },
+  "shortcut_label_scroll_half_down": {
+    "message": "半ページ下にスクロール",
+    "description": "Shortcut label."
+  },
+  "shortcut_label_toggle_focus": {
+    "message": "フォーカス切り替え",
+    "description": "Shortcut label."
+  },
+  "shortcut_label_open_new_chat": {
+    "message": "新しいチャットを開く",
+    "description": "Shortcut label."
+  },
+  "shortcut_label_toggle_temporary_chat": {
+    "message": "アカウント／シークレットモードを切り替え",
+    "description": "Shortcut label."
+  },
+  "shortcut_label_delete_chat": {
+    "message": "チャットを削除",
+    "description": "Shortcut label."
+  },
+  "shortcut_label_bookmark_chat": {
+    "message": "チャットをブックマーク",
+    "description": "Shortcut label."
+  },
+  "shortcut_label_add_photos": {
+    "message": "写真・ファイルを追加",
+    "description": "Shortcut label."
+  },
+  "html_lang": {
+    "message": "ja",
+    "description": "Language code for <html lang>."
+  },
+  "key_name_ctrl": {
+    "message": "Ctrl",
+    "description": "Label used for Control modifier."
+  },
+  "key_name_cmd": {
+    "message": "Cmd",
+    "description": "Label used for Command modifier."
+  },
+  "key_name_alt": {
+    "message": "Alt",
+    "description": "Label used for Alt modifier."
+  },
+  "key_name_shift": {
+    "message": "Shift",
+    "description": "Label used for Shift modifier."
+  },
+  "key_name_space": {
+    "message": "スペース",
+    "description": "Label for the Space key."
+  },
+  "key_name_enter": {
+    "message": "Enter",
+    "description": "Label for the Enter key."
+  },
+  "key_name_backspace": {
+    "message": "⌫",
+    "description": "Label for the Backspace key."
+  },
+  "key_name_delete": {
+    "message": "⌦",
+    "description": "Label for the Delete key."
+  }
+}
