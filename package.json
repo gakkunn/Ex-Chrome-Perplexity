@@ -1,0 +1,56 @@
+{
+  "name": "perplexity-shortcut-effective-extension",
+  "version": "1.0.0",
+  "description": "Safer send, vim-like scroll, model toggles, temporary chats, and clean UI for Perplexity.",
+  "author": "",
+  "license": "ISC",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "dev:watch": "vite build --watch --mode development",
+    "build": "vite build",
+    "preview": "vite preview --host",
+    "lint": "eslint --max-warnings=0 --config config/eslint.config.mjs \"src/**/*.{ts,tsx}\"",
+    "lint:fix": "eslint --fix --config config/eslint.config.mjs \"src/**/*.{ts,tsx}\"",
+    "format": "prettier --config config/prettier.config.mjs --write \"{src,config}/**/*.{ts,tsx,js,jsx,json,css,md}\"",
+    "format:check": "prettier --config config/prettier.config.mjs --check \"{src,config}/**/*.{ts,tsx,js,jsx,json,css,md}\"",
+    "check": "npm run lint && npm run format:check",
+    "prepare": "husky"
+  },
+  "keywords": [],
+  "dependencies": {
+    "preact": "^10.25.1"
+  },
+  "devDependencies": {
+    "@crxjs/vite-plugin": "^2.2.1",
+    "@eslint/js": "^9.39.1",
+    "@preact/preset-vite": "^2.10.2",
+    "@types/chrome": "^0.0.260",
+    "@types/node": "^22.9.0",
+    "@typescript-eslint/eslint-plugin": "^8.47.0",
+    "@typescript-eslint/parser": "^8.47.0",
+    "eslint": "^9.39.1",
+    "eslint-config-prettier": "^10.1.8",
+    "eslint-import-resolver-typescript": "^3.7.0",
+    "eslint-plugin-import": "^2.31.0",
+    "eslint-plugin-prettier": "^5.5.4",
+    "husky": "^9.1.7",
+    "lint-staged": "^15.2.10",
+    "prettier": "^3.6.2",
+    "esbuild": "^0.25.12",
+    "typescript": "^5.7.2",
+    "typescript-eslint": "^8.47.0",
+    "vite": "^5.4.21"
+  },
+  "overrides": {
+    "esbuild": "^0.25.12"
+  },
+  "lint-staged": {
+    "*.{ts,tsx}": [
+      "eslint --max-warnings=0 --no-warn-ignored --config config/eslint.config.mjs"
+    ],
+    "*.{ts,tsx,js,jsx,json,css,md}": [
+      "prettier --config config/prettier.config.mjs --write"
+    ]
+  }
+}
