@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "Safer send, vim-like scroll, model toggles, temporary chats, and clean UI for Perplexity.",
   "author": "",
-  "license": "ISC",
+  "license": "MIT",
   "type": "module",
   "scripts": {
     "dev": "vite",
