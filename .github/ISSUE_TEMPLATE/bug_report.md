@@ -34,3 +34,6 @@ If possible, add screenshots or console logs.
 - Browser: Chrome version:
 - Extension version:
 
+
+
+

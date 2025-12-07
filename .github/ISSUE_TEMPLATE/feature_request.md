@@ -26,3 +26,6 @@ Mention any alternative solutions or workarounds you’ve considered.
 
 Add UI ideas, references, or any other context here.
 
+
+
+
