@@ -1,0 +1,84 @@
+/* ========================================
+   UI ENHANCEMENT STYLES
+   ======================================== */
+
+/* Hide bottom promotional elements */
+html[data-perplexity-wide='true']
+  .mb-lg.bottom-0.flex.w-full.items-center.justify-center.pb-3.text-center.md\:absolute {
+  display: none !important;
+}
+html[data-perplexity-wide='true'] .mt-lg.absolute.w-full {
+  display: none !important;
+}
+
+/* Hide sidebar description text */
+html[data-perplexity-wide='true'] a[data-testid^='sidebar-'] .line-clamp-2 {
+  display: none !important;
+}
+
+/* Hide the "Scroll to latest" floating button */
+html[data-perplexity-wide='true'] button[aria-label='Scroll to latest'] {
+  display: none !important;
+}
+
+/* Hide only the Account label in the profile section */
+html[data-perplexity-wide='true']
+  [data-testid='sidebar-popover-trigger-signed-in']
+  .w-full.truncate.font-sans.font-normal {
+  display: none !important;
+}
+
+/* Hide only the Upgrade button label */
+html[data-perplexity-wide='true']
+  button[data-testid='sidebar-upgrade-button']
+  .w-full.truncate.font-sans.font-normal {
+  display: none !important;
+}
+
+/* Hide only the Install label appearing right after the Upgrade button */
+html[data-perplexity-wide='true']
+  button[data-testid='sidebar-upgrade-button']
+  + div[data-state='closed']
+  .w-full.truncate.font-sans.font-normal {
+  display: none !important;
+}
+
+html[data-perplexity-wide='true'] button[data-testid='sidebar-upgrade-button'] {
+  display: none !important;
+}
+
+html[data-perplexity-wide='true'] div.gap-xs.flex.flex-col.items-center[data-state='closed'] {
+  display: none !important;
+}
+
+html[data-perplexity-wide='true']
+  .group.relative.size-9.rounded-full[data-state='closed']
+  > button[data-testid='sidebar-new-thread'] {
+  display: none !important;
+}
+
+html[data-perplexity-wide='true'] .right-toastHMargin.top-toastVMargin.cursor-pointer {
+  display: none;
+}
+
+/* ========================================
+   FOCUS MODE STYLES
+   ======================================== */
+
+/* Hide input field by default, show on hover/focus */
+html[data-perplexity-wide='true'] .ppx-focus-wrapper .ppx-panel {
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.12s ease-out;
+}
+
+html[data-perplexity-wide='true'] .ppx-focus-wrapper:hover .ppx-panel,
+html[data-perplexity-wide='true'] .ppx-focus-wrapper.focused .ppx-panel {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+/* Remove default outline from contenteditable */
+html[data-perplexity-wide='true'] div[contenteditable='true']#ask-input:focus {
+  outline: none;
+}
