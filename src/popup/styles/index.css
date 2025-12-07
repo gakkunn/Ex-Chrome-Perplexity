@@ -1,0 +1,234 @@
+:root {
+  color-scheme: dark;
+}
+
+body {
+  margin: 0 auto;
+  padding: 16px;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  background: #0f172a;
+  color: #e2e8f0;
+  min-width: 420px;
+  max-width: 640px;
+}
+
+.popup-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+h1 {
+  margin: 0;
+  font-size: 18px;
+}
+
+h2 {
+  margin: 0 0 8px;
+  font-size: 13px;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: #cbd5e1;
+}
+
+.header-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.card {
+  background: #0b1220;
+  border: 1px solid #1f2a44;
+  border-radius: 12px;
+  padding: 16px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.35);
+}
+
+.toggle-list {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.toggle {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 4px 0;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.toggle input {
+  accent-color: #38bdf8;
+  width: 16px;
+  height: 16px;
+}
+
+.shortcut-message {
+  min-height: 18px;
+  font-size: 12px;
+  margin-bottom: 8px;
+  color: #94a3b8;
+}
+
+.shortcut-message[data-status='error'] {
+  color: #fca5a5;
+}
+
+.shortcut-message[data-status='info'] {
+  color: #cbd5e1;
+}
+
+.shortcut-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 10px 0;
+  border-bottom: 1px solid #1f2a44;
+}
+
+.shortcut-row:last-child {
+  border-bottom: none;
+}
+
+.shortcut-label {
+  font-size: 13px;
+  color: #e2e8f0;
+}
+
+.shortcut-input {
+  flex: 0 0 160px;
+  padding: 8px 10px;
+  border-radius: 8px;
+  border: 1px solid #1f2a44;
+  background: #0f172a;
+  color: #e2e8f0;
+  font-size: 12px;
+  min-height: 36px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  cursor: text;
+}
+
+.shortcut-input:focus-within {
+  border-color: #38bdf8;
+  box-shadow:
+    0 0 0 1px #38bdf8,
+    0 0 0 4px rgba(56, 189, 248, 0.15);
+}
+
+.shortcut-input:focus-visible {
+  outline: 2px solid #38bdf8;
+  outline-offset: 2px;
+}
+
+.shortcut-input-error {
+  border-color: #ef4444;
+  box-shadow: 0 0 0 1px #ef4444;
+}
+
+.shortcut-input-error:focus-within {
+  border-color: #ef4444;
+  box-shadow:
+    0 0 0 1px #ef4444,
+    0 0 0 4px rgba(239, 68, 68, 0.15);
+}
+
+.shortcut-keycaps {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  flex-wrap: wrap;
+}
+
+.shortcut-keycap-group {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.shortcut-keycap-wrapper {
+  display: inline-flex;
+  align-items: center;
+}
+
+.chatgpt-unified-keycap {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 1.6em;
+  padding: 4px 8px;
+  border-radius: 8px;
+  border: 1px solid #1f2a44;
+  background: linear-gradient(180deg, #111827, #0b1220);
+  box-shadow:
+    0 1px 0 rgba(255, 255, 255, 0.04),
+    inset 0 1px 0 rgba(255, 255, 255, 0.04);
+  font-size: 12px;
+  font-family: 'SF Pro Text', 'Segoe UI', system-ui, sans-serif;
+  color: #e2e8f0;
+}
+
+.chatgpt-unified-keycap-label {
+  min-width: 1ch;
+  text-align: center;
+}
+
+.chatgpt-unified-keycap-sep {
+  margin: 0 4px;
+  color: #94a3b8;
+  font-weight: 600;
+}
+
+.shortcut-binding-sep {
+  margin: 0 6px;
+  color: #64748b;
+  font-weight: 600;
+}
+
+.shortcut-placeholder {
+  color: #475569;
+}
+
+.reset-button {
+  border-radius: 8px;
+  padding: 6px 12px;
+  border: 1px solid #1f2a44;
+  background: #1f2a44;
+  color: inherit;
+  font-size: 12px;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.reset-button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.reset-button:not(:disabled):hover {
+  background: #273357;
+}
+
+.loading-text,
+.error-text {
+  margin: 0;
+  font-size: 14px;
+  color: #cbd5e1;
+  text-align: center;
+}
+
+.error-text {
+  color: #fca5a5;
+}
+
+.helper-text {
+  font-size: 12px;
+  color: #94a3b8;
+  margin: 4px 0 0;
+}
