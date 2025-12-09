@@ -2,7 +2,7 @@
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](./LICENSE)
 
-<!-- Add other badges here if desired (CI Status / Version, etc.) -->
+Chrome Web Store: [Perplexity Shortcut Effective Extension](https://chromewebstore.google.com/detail/perplexity-shortcut-effec/cbgfaopfcemflieblakecpjfokghmlgl?authuser=0&hl=en)
 
 ## Overview
 
@@ -36,9 +36,7 @@ Built on Manifest v3.
 ---
 
 ## Installation
-
-> ℹ️ **Not yet published to the Chrome Web Store.**  
-> You can use it via "Local Installation (Developer Mode)" below.
+Chrome Web Store: [Perplexity Shortcut Effective Extension](https://chromewebstore.google.com/detail/perplexity-shortcut-effec/cbgfaopfcemflieblakecpjfokghmlgl?authuser=0&hl=en)
 
 ### 1. Clone the repository
 
