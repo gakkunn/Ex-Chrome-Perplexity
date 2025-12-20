@@ -206,9 +206,12 @@ export function waitForElement<T extends Element = Element>(
  * @returns True if the element is visible
  */
 export function isElementVisible(element: Element): boolean {
-  if (!(element as HTMLElement).offsetParent) return false;
-  const style = window.getComputedStyle(element as HTMLElement);
-  return style.visibility !== 'hidden' && style.display !== 'none';
+  const style = window.getComputedStyle(element as Element);
+  if (style.visibility === 'hidden' || style.display === 'none') return false;
+  if (Number.parseFloat(style.opacity) === 0) return false;
+
+  const rect = (element as Element).getBoundingClientRect();
+  return rect.width > 0 && rect.height > 0;
 }
 
 /**
