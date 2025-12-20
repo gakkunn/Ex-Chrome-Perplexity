@@ -58,7 +58,29 @@ export function openNewChat(): void {
  * Toggles temporary chat - switches between Account/Incognito (mod + I)
  */
 export async function toggleTemporaryChat(): Promise<void> {
-  const trigger = document.querySelector('[data-testid="sidebar-popover-trigger-signed-in"]');
+  // Try multiple selectors to handle DOM changes
+  let trigger: Element | null = null;
+
+  // Try 1: Old data-testid attribute
+  trigger = document.querySelector('[data-testid="sidebar-popover-trigger-signed-in"]');
+
+  // Try 2: Find button with "Account" text in sidebar
+  if (!trigger) {
+    const accountButtons = Array.from(document.querySelectorAll('button'));
+    trigger = findElementByText(accountButtons, /^account$/i);
+  }
+
+  // Try 3: Find element with aria-haspopup="menu" containing user avatar
+  if (!trigger) {
+    const menuTriggers = Array.from(
+      document.querySelectorAll<HTMLElement>('[aria-haspopup="menu"]'),
+    );
+    trigger =
+      menuTriggers.find((el) => el.querySelector('img[alt*="avatar" i]')) ||
+      menuTriggers.find((el) => el.querySelector('img[src*="imagedelivery.net"]')) ||
+      null;
+  }
+
   if (!trigger) {
     console.warn('[Shortcut] Account icon not found');
     return;
@@ -67,7 +89,59 @@ export async function toggleTemporaryChat(): Promise<void> {
   strongClick(trigger);
   console.log('[Shortcut] Opening account menu...');
 
-  // Wait for menu to appear
+  // New menu layout: role="menuitem" entries inside radix scroll area
+  const incognitoItem = await waitForElement<HTMLElement>(
+    () => {
+      const items = Array.from(document.querySelectorAll<HTMLElement>('[role="menuitem"]'));
+      const visibleItems = items.filter((item) => isElementVisible(item));
+      return findElementByText(visibleItems, /incognito/i);
+    },
+    { maxAttempts: TIMING.MAX_POLL_ATTEMPTS, interval: TIMING.POLL_INTERVAL, visible: true },
+  );
+
+  if (incognitoItem) {
+    const menuContainer =
+      incognitoItem.closest<HTMLElement>('[data-radix-scroll-area-viewport]') ||
+      incognitoItem.closest<HTMLElement>('[role="menu"]') ||
+      incognitoItem.parentElement;
+
+    const menuItems = menuContainer
+      ? Array.from(menuContainer.querySelectorAll<HTMLElement>('[role="menuitem"]'))
+      : [incognitoItem];
+    const visibleMenuItems = menuItems.filter((item) => isElementVisible(item));
+
+    const accountItem =
+      visibleMenuItems.find((item) => item.querySelector('img[alt*="avatar" i]')) ||
+      visibleMenuItems.find((item) => item.querySelector('img[src*="imagedelivery.net"]')) ||
+      (() => {
+        const index = visibleMenuItems.indexOf(incognitoItem);
+        if (index > 0) return visibleMenuItems[index - 1];
+        if (visibleMenuItems.length >= 2) return visibleMenuItems[visibleMenuItems.length - 2];
+        return null;
+      })();
+
+    if (!accountItem) {
+      console.warn('[Shortcut] Account menu item not found');
+      return;
+    }
+
+    const activeItem = visibleMenuItems.find(
+      (item) =>
+        item.querySelector('use[href="#pplx-icon-check"]') ||
+        item.querySelector('use[xlink\\:href="#pplx-icon-check"]') ||
+        item.querySelector('span.text-super svg'),
+    );
+    const incognitoActive = activeItem
+      ? /incognito/i.test(activeItem.textContent || '')
+      : !!incognitoItem.querySelector('span.text-super');
+
+    const target = incognitoActive ? accountItem : incognitoItem;
+    strongClick(target);
+    console.log(`[Shortcut] Switched to ${incognitoActive ? 'Account' : 'Incognito'} mode`);
+    return;
+  }
+
+  // Legacy menu layout fallback
   const incognitoLabel = await waitForElement<HTMLDivElement>(
     () =>
       Array.from(document.querySelectorAll<HTMLDivElement>('div.font-sans.font-medium')).find(
