@@ -11,8 +11,14 @@ html[data-perplexity-wide='true'] .mt-lg.absolute.w-full {
   display: none !important;
 }
 
-/* Hide sidebar description text */
+/* Hide sidebar description text and all navigation labels */
 html[data-perplexity-wide='true'] a[data-testid^='sidebar-'] .line-clamp-2 {
+  display: none !important;
+}
+
+/* Hide all sidebar text labels (Library, Discover, Spaces, Finance, More, etc.) */
+html[data-perplexity-wide='true'] .line-clamp-2.text-2xs.text-quiet,
+html[data-perplexity-wide='true'] .truncate.text-2xs.text-quiet {
   display: none !important;
 }
 
