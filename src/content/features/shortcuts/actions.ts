@@ -45,7 +45,7 @@ function showCornerNotice(message: string): void {
  * Opens a new chat (mod + Shift + O)
  */
 export function openNewChat(): void {
-  const btn = document.querySelector<HTMLButtonElement>('button[data-testid="sidebar-new-thread"]');
+  const btn = document.querySelector<HTMLButtonElement>('button[aria-label="New Thread"]');
   if (!btn) {
     console.warn('[Shortcut] New Thread button not found');
     return;
