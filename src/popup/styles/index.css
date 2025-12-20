@@ -1,14 +1,37 @@
 :root {
   color-scheme: dark;
+  --popup-min-width: 420px;
+  --popup-padding: 16px;
+  --text-color: #e2e8f0;
+  --popup-bg: #0f172a;
+  --footer-margin-top: 0.5rem;
+  --hr-margin-y: 1rem;
+  --hr-width: 80%;
+  --hr-color: #1f2a44;
+  --links-gap: 0.5rem;
+  --link-color: #94a3b8;
+  --link-hover-underline: underline;
+  --icon-size: 1.4rem;
+  --icon-margin-x: 0.2rem;
+  --icon-hover-opacity: 0.8;
+  --tooltip-bg: #1f2a44;
+  --tooltip-color: #e2e8f0;
+  --tooltip-font-size: 0.8rem;
+  --tooltip-padding: 0.5rem;
+  --tooltip-radius: 0.5rem 0.5rem 0.5rem 0;
+  --tooltip-width: 5em;
+  --tooltip-z-index: 2;
+  --tooltip-offset-x: 120%;
+  --tooltip-offset-y: -135%;
 }
 
 body {
   margin: 0 auto;
-  padding: 16px;
+  padding: var(--popup-padding, 16px);
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-  background: #0f172a;
-  color: #e2e8f0;
-  min-width: 420px;
+  background: var(--popup-bg, #0f172a);
+  color: var(--text-color, #e2e8f0);
+  min-width: var(--popup-min-width, 420px);
   max-width: 640px;
 }
 
@@ -16,6 +39,92 @@ body {
   display: flex;
   flex-direction: column;
   gap: 16px;
+}
+
+.popup-footer {
+  margin-top: var(--footer-margin-top, 0.5rem);
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.popup-footer hr {
+  margin: var(--hr-margin-y, 1rem) 0;
+  width: var(--hr-width, 80%);
+  border: none;
+  border-bottom: 1px solid var(--hr-color, #ccc);
+}
+
+.links {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--links-gap, 0.5rem);
+}
+
+.footer-button {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  color: var(--link-color, #7b7b7b);
+  cursor: pointer;
+}
+
+.footer-button:hover {
+  text-decoration: var(--link-hover-underline, underline);
+}
+
+.footer-button .icon {
+  display: inline-block;
+  width: var(--icon-size, 1rem);
+  height: var(--icon-size, 1rem);
+  margin: 0 var(--icon-margin-x, 0.2rem);
+  opacity: 1;
+  transition: opacity 0.2s ease;
+}
+
+.footer-button:hover .icon {
+  opacity: var(--icon-hover-opacity, 0.8);
+}
+
+.footer-button::after {
+  position: absolute;
+  top: 100%;
+  right: 100%;
+  transform: translate(var(--tooltip-offset-x), var(--tooltip-offset-y));
+  background: var(--tooltip-bg, #343541);
+  color: var(--tooltip-color, #fff);
+  font-size: var(--tooltip-font-size, 0.8rem);
+  padding: var(--tooltip-padding, 0.5rem);
+  border-radius: var(--tooltip-radius, 0.5rem 0.5rem 0.5rem 0);
+  z-index: var(--tooltip-z-index, 1);
+  min-width: var(--tooltip-width, 5em);
+  width: max-content;
+  white-space: nowrap;
+  opacity: 0;
+  pointer-events: none;
+  display: inline-block;
+  transition: opacity 0.15s ease;
+}
+
+.footer-button:hover::after,
+.footer-button:focus-visible::after {
+  opacity: 1;
+}
+
+.github-button::after {
+  content: 'Contribute';
+}
+
+.question-button::after {
+  content: 'Support';
+}
+
+.coffee-button::after {
+  content: 'Buy me a coffee';
 }
 
 h1 {

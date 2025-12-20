@@ -22,6 +22,14 @@ import {
   saveSettings,
 } from '@/shared/settings';
 
+const GITHUB_URL = 'https://github.com/gakkunn/Ex-Chrome-Perplexity';
+const SUPPORT_FORM_URL = 'https://docs.google.com/forms/d/e/1FAIpQLSeiK5mMYlujWSLjdF2zjTY8am7gi_BlJOAiruga8QIw4xDVyg/viewform';
+const COFFEE_URL = 'https://buymeacoffee.com/gakkunn';
+
+const ICON_GITHUB_SRC = '/img/github.svg';
+const ICON_SUPPORT_SRC = '/img/support.svg';
+const ICON_COFFEE_SRC = '/img/coffee.svg';
+
 type ShortcutDefinitionWithCategory = (typeof SHORTCUT_DEFINITIONS)[number];
 
 type MessageState =
@@ -331,6 +339,50 @@ export function App() {
           </section>
         </>
       )}
+
+      <footer className="popup-footer">
+        <section className="links">
+          <div>
+            <a
+              className="footer-button github-button"
+              href={GITHUB_URL}
+              target="_blank"
+              rel="noreferrer noopener"
+              aria-label="Contribute"
+            >
+              <span>
+                <img className="icon" src={ICON_GITHUB_SRC} alt="Contribute" />
+              </span>
+            </a>
+          </div>
+          <div>
+            <a
+              className="footer-button question-button"
+              href={SUPPORT_FORM_URL}
+              target="_blank"
+              rel="noreferrer noopener"
+              aria-label="Support"
+            >
+              <span>
+                <img className="icon" src={ICON_SUPPORT_SRC} alt="Report a problem" />
+              </span>
+            </a>
+          </div>
+          <div>
+            <a
+              className="footer-button coffee-button"
+              href={COFFEE_URL}
+              target="_blank"
+              rel="noreferrer noopener"
+              aria-label="Buy me a coffee"
+            >
+              <span>
+                <img className="icon" src={ICON_COFFEE_SRC} alt="Buy me a coffee" />
+              </span>
+            </a>
+          </div>
+        </section>
+      </footer>
     </div>
   );
 }
