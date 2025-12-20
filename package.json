@@ -1,6 +1,6 @@
 {
   "name": "perplexity-shortcut-effective-extension",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "Safer send, vim-like scroll, model toggles, temporary chats, and clean UI for Perplexity.",
   "author": "",
   "license": "MIT",

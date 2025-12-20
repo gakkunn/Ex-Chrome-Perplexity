@@ -7,7 +7,7 @@ export default defineManifest({
   default_locale: 'en',
   name: '__MSG_extension_name__',
   description: '__MSG_extension_description__',
-  version: '1.0.0',
+  version: '1.1.0',
   icons: {
     16: 'icons/icon16.png',
     32: 'icons/icon32.png',
