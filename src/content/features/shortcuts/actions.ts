@@ -312,10 +312,143 @@ export async function deleteChat(): Promise<void> {
   await focusDeleteConfirmButton();
 }
 
+let bookmarkQueue: Promise<void> = Promise.resolve();
+
+type BookmarkState = 'bookmarked' | 'not_bookmarked' | null;
+
+function findVisibleBookmarkMenuItem(): HTMLElement | null {
+  const menuItems = Array.from(
+    document.querySelectorAll<HTMLElement>('[role="menuitem"], [role="menuitemcheckbox"]'),
+  );
+  const visibleItems = menuItems.filter((item) => isElementVisible(item));
+  return (
+    // If already bookmarked, text may be "Bookmarked" with filled icon
+    findElementByText(visibleItems, /bookmarked/i) ||
+    findElementByText(visibleItems, /remove bookmark/i) ||
+    findElementByText(visibleItems, /add bookmark/i) ||
+    findElementByText(visibleItems, /bookmark/i) ||
+    null
+  );
+}
+
+function getBookmarkStateFromItem(item: HTMLElement | null): BookmarkState {
+  if (!item) return null;
+
+  const ariaChecked = item.getAttribute('aria-checked');
+  if (ariaChecked === 'true') return 'bookmarked';
+  if (ariaChecked === 'false') return 'not_bookmarked';
+
+  const dataState = item.getAttribute('data-state') || item.dataset.state;
+  if (dataState === 'checked' || dataState === 'on' || dataState === 'active') {
+    return 'bookmarked';
+  }
+  if (dataState === 'unchecked' || dataState === 'off' || dataState === 'inactive') {
+    return 'not_bookmarked';
+  }
+
+  const hasCheckmark =
+    item.querySelector('use[href="#pplx-icon-check"]') ||
+    item.querySelector('use[xlink\\:href="#pplx-icon-check"]') ||
+    item.querySelector('span.text-super svg');
+  if (hasCheckmark) return 'bookmarked';
+
+  const text = item.textContent || '';
+  if (/remove bookmark/i.test(text) || /bookmarked/i.test(text)) return 'bookmarked';
+  if (/add bookmark/i.test(text)) return 'not_bookmarked';
+  if (/bookmark/i.test(text)) return 'not_bookmarked';
+  return null;
+}
+
+async function waitForBookmarkMenuItem(): Promise<HTMLElement | null> {
+  return waitForElement<HTMLElement>(() => findVisibleBookmarkMenuItem(), {
+    maxAttempts: TIMING.MAX_POLL_ATTEMPTS,
+    interval: TIMING.POLL_INTERVAL,
+    visible: true,
+  });
+}
+
+async function waitForBookmarkMenuItemToDisappear(): Promise<void> {
+  await new Promise((resolve) => {
+    let attempts = 0;
+    const check = (): void => {
+      const item = findVisibleBookmarkMenuItem();
+      if (!item || attempts >= TIMING.MAX_POLL_ATTEMPTS) {
+        resolve(undefined);
+        return;
+      }
+      attempts += 1;
+      setTimeout(check, TIMING.POLL_INTERVAL);
+    };
+    check();
+  });
+}
+
+function closeThreadActionsMenu(): void {
+  const escapeDown = new KeyboardEvent('keydown', {
+    key: 'Escape',
+    code: 'Escape',
+    keyCode: 27,
+    which: 27,
+    bubbles: true,
+    cancelable: true,
+  });
+  const escapeUp = new KeyboardEvent('keyup', {
+    key: 'Escape',
+    code: 'Escape',
+    keyCode: 27,
+    which: 27,
+    bubbles: true,
+    cancelable: true,
+  });
+  document.dispatchEvent(escapeDown);
+  document.dispatchEvent(escapeUp);
+}
+
+async function confirmBookmarkState(
+  actionsBtn: HTMLButtonElement,
+  desiredState: BookmarkState,
+): Promise<BookmarkState> {
+  if (!desiredState) return null;
+
+  const inlineItem = await waitForElement<HTMLElement>(
+    () => {
+      const item = findVisibleBookmarkMenuItem();
+      if (!item) return null;
+      return getBookmarkStateFromItem(item) === desiredState ? item : null;
+    },
+    { maxAttempts: 4, interval: TIMING.POLL_INTERVAL },
+  );
+  if (inlineItem) {
+    return desiredState;
+  }
+
+  await waitForBookmarkMenuItemToDisappear();
+
+  strongClick(actionsBtn);
+  const verifyItem = await waitForBookmarkMenuItem();
+  const verifyState = getBookmarkStateFromItem(verifyItem);
+
+  if (verifyItem) {
+    closeThreadActionsMenu();
+    await waitForBookmarkMenuItemToDisappear();
+  }
+
+  return verifyState;
+}
+
 /**
  * Bookmarks the current chat (mod + Shift + P)
  */
-export async function bookmarkCurrentChat(): Promise<void> {
+export function bookmarkCurrentChat(): Promise<void> {
+  bookmarkQueue = bookmarkQueue
+    .then(() => runBookmarkCurrentChat())
+    .catch((error) => {
+      console.warn('[Shortcut] Bookmark action failed', error);
+    });
+  return bookmarkQueue;
+}
+
+async function runBookmarkCurrentChat(): Promise<void> {
   const actionsBtn = document.querySelector<HTMLButtonElement>(
     'button[aria-label="Thread actions"]',
   );
@@ -324,33 +457,50 @@ export async function bookmarkCurrentChat(): Promise<void> {
     return;
   }
 
-  strongClick(actionsBtn);
-  console.log('[Shortcut] Opening thread actions...');
-
-  const bookmarkItem = await waitForElement<HTMLElement>(
-    () => {
-      const menuItems = Array.from(document.querySelectorAll<HTMLElement>('[role="menuitem"]'));
-      return (
-        // If already bookmarked, text may be "Bookmarked" with filled icon
-        findElementByText(menuItems, /bookmarked/i) ||
-        findElementByText(menuItems, /remove bookmark/i) ||
-        findElementByText(menuItems, /add bookmark/i) ||
-        null
-      );
-    },
-    { maxAttempts: TIMING.MAX_POLL_ATTEMPTS, interval: TIMING.POLL_INTERVAL },
-  );
+  let bookmarkItem = findVisibleBookmarkMenuItem();
+  if (!bookmarkItem) {
+    strongClick(actionsBtn);
+    console.log('[Shortcut] Opening thread actions...');
+    bookmarkItem = await waitForBookmarkMenuItem();
+  }
 
   if (!bookmarkItem) {
     console.warn('[Shortcut] Bookmark menu item not found');
     return;
   }
 
+  const beforeState = getBookmarkStateFromItem(bookmarkItem);
+  const desiredState =
+    beforeState === 'bookmarked'
+      ? 'not_bookmarked'
+      : beforeState === 'not_bookmarked'
+        ? 'bookmarked'
+        : null;
+
   strongClick(bookmarkItem);
-  const text = bookmarkItem.textContent || '';
-  const isRemoving = /bookmarked/i.test(text) || /remove bookmark/i.test(text);
-  showCornerNotice(isRemoving ? 'Remove bookmark' : 'Bookmarked');
-  console.log(`[Shortcut] Bookmark ${isRemoving ? 'removed' : 'added'}`);
+
+  const confirmedState = desiredState
+    ? await confirmBookmarkState(actionsBtn, desiredState)
+    : null;
+
+  if (confirmedState === 'bookmarked') {
+    showCornerNotice('Bookmarked');
+    console.log('[Shortcut] Bookmark added');
+  } else if (confirmedState === 'not_bookmarked') {
+    showCornerNotice('Remove bookmark');
+    console.log('[Shortcut] Bookmark removed');
+  } else if (desiredState) {
+    showCornerNotice('Bookmark status not confirmed');
+    console.warn('[Shortcut] Bookmark status not confirmed');
+  } else {
+    showCornerNotice('Bookmark triggered');
+    console.warn('[Shortcut] Bookmark state unknown');
+  }
+
+  if (findVisibleBookmarkMenuItem()) {
+    closeThreadActionsMenu();
+    await waitForBookmarkMenuItemToDisappear();
+  }
 }
 
 /**
